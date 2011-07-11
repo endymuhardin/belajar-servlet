@@ -7,6 +7,7 @@ package belajar.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author endy
  */
-public class HaloServlet extends HttpServlet {
+@WebServlet(name = "Invalidate", urlPatterns = {"/invalidate"})
+public class Invalidate extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -29,20 +31,17 @@ public class HaloServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            
+            // menghapus session
+            request.getSession().invalidate();
+            
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HaloServlet</title>");  
+            out.println("<title>Servlet Invalidate</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HaloServlet at " + request.getContextPath () + "</h1>");
-
-            // ambil variabel dari session
-            String nama = (String) request.getSession().getAttribute("nama");
-            out.println("<h1>Halo "+nama+"</h1>");
-            
-            String contextPath = request.getContextPath();
-            out.println("<a href=\""+contextPath+"/invalidate\">Reset Session</a>");
-            
+            out.println("<h1>Data session Anda sudah dihapus</h1>");
+            out.println("<h2>Coba tekan Back kemudian Refresh untuk membuktikannya</h2>");
             out.println("</body>");
             out.println("</html>");
         } finally {            
