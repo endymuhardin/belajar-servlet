@@ -34,6 +34,9 @@ public class Komentar extends HttpServlet {
             String email = request.getParameter("email");
             String komentar = request.getParameter("komentar");
             
+            // simpan variabel di session
+            request.getSession().setAttribute("nama", nama);
+            
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Komentar Anda</title>");  
