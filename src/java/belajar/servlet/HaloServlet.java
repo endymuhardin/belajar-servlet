@@ -37,8 +37,9 @@ public class HaloServlet extends HttpServlet {
             out.println("<h1>Servlet HaloServlet at " + request.getContextPath () + "</h1>");
 
             // ambil variabel dari session
+            String sessid = request.getSession().getId();
             String nama = (String) request.getSession().getAttribute("nama");
-            out.println("<h1>Halo "+nama+"</h1>");
+            out.println("<h1>Halo "+nama+", session id = "+sessid+"</h1>");
             
             String contextPath = request.getContextPath();
             out.println("<a href=\""+contextPath+"/invalidate\">Reset Session</a>");
