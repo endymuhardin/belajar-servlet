@@ -4,12 +4,19 @@
         <servlet-name>HaloServlet</servlet-name>
         <servlet-class>belajar.servlet.HaloServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Komentar</servlet-name>
+        <servlet-class>belajar.servlet.Komentar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HaloServlet</servlet-name>
-        
         <!-- url tidak ada hubungan dengan struktur folder -->
         <!-- tidak seperti php/asp -->
         <url-pattern>/sub/folder/belajar/coba.php</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Komentar</servlet-name>
+        <url-pattern>/comment</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
